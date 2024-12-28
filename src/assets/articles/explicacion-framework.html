@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicación del Funcionamiento de Angular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        code {
+            background: #eef;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fdf8e4;
+            padding: 10px;
+            border: 1px solid #ffd966;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Explicación del Funcionamiento del Framework Angular</h1>
+        <h2>5. Funcionamiento del Framework:</h2>
+
+        <h3>a. ¿Actúa sobre páginas, ficheros, secciones…?</h3>
+        <p>Angular es un framework frontend que actúa sobre aplicaciones de una sola página (<strong>SPA - Single Page
+                Application</strong>). Estas aplicaciones se cargan una vez en el navegador y manejan dinámicamente el
+            contenido sin necesidad de recargar completamente la página. Angular interactúa con:</p>
+        <ul>
+            <li><strong>Componentes:</strong> Cada sección de la interfaz se define como un componente reutilizable.
+            </li>
+            <li><strong>Módulos:</strong> Agrupan funcionalidad y componentes relacionados.</li>
+            <li><strong>Plantillas HTML:</strong> Definen el diseño visual que el usuario ve en la aplicación.</li>
+            <li><strong>Estilos CSS:</strong> Aplican el diseño a los componentes.</li>
+            <li><strong>Datos:</strong> Gestiona y enlaza dinámicamente los datos mediante el <strong>two-way data
+                    binding</strong>.</li>
+        </ul>
+
+        <h3>b. ¿Cómo se editan/modifican los ficheros que actúan en el framework?</h3>
+        <p>Angular organiza los proyectos de forma modular, utilizando una estructura clara y estandarizada:</p>
+        <ol>
+            <li>
+                <strong>Editar Componentes:</strong>
+                <ul>
+                    <li>El archivo <code>nombre-componente.component.ts</code> contiene la lógica del componente.</li>
+                    <li>El archivo <code>nombre-componente.component.html</code> define la estructura visual.</li>
+                    <li>El archivo <code>nombre-componente.component.css</code> o <code>.scss</code> contiene los
+                        estilos específicos.</li>
+                </ul>
+                <p>Ejemplo de modificación en el archivo <code>app.component.html</code>:</p>
+                <pre><code>&lt;h1&gt;Bienvenido a Angular&lt;/h1&gt;
+&lt;p&gt;Este es un componente modificado.&lt;/p&gt;</code></pre>
+            </li>
+            <li>
+                <strong>Crear Nuevos Componentes:</strong>
+                Usa el comando Angular CLI:
+                <pre><code>ng generate component nombre-componente</code></pre>
+                Esto genera automáticamente los archivos necesarios para el nuevo componente.
+            </li>
+            <li>
+                <strong>Modificar Módulos:</strong>
+                <p>Los módulos se definen en archivos <code>nombre-modulo.module.ts</code>, como
+                    <code>app.module.ts</code>. Aquí puedes importar y declarar componentes:
+                </p>
+                <pre><code>import { NombreComponente } from './nombre-componente/nombre-componente.component';
+
+@NgModule({
+  declarations: [
+    NombreComponente,
+    OtroComponente
+  ],
+  imports: [
+    BrowserModule
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }</code></pre>
+            </li>
+        </ol>
+
+        <h3>c. ¿Cómo se referencian los ficheros creados desde otras aplicaciones (si es el caso)?</h3>
+        <p>Angular facilita la interacción con archivos externos y APIs mediante varias estrategias:</p>
+        <ol>
+            <li>
+                <strong>Importar archivos CSS o JavaScript:</strong> Puedes incluir archivos externos en el archivo
+                <code>angular.json</code>:
+                <pre><code>{
+  "styles": [
+    "src/styles.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+  ],
+  "scripts": [
+    "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  ]
+}</code></pre>
+            </li>
+            <li>
+                <strong>Consumir APIs externas:</strong> Angular utiliza el módulo <code>HttpClient</code> para
+                interactuar con APIs. Ejemplo de servicio:
+                <pre><code>import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  private apiUrl = 'https://api.example.com/data';
+
+  constructor(private http: HttpClient) { }
+
+  getData() {
+    return this.http.get(this.apiUrl);
+  }
+}</code></pre>
+            </li>
+            <li>
+                <strong>Usar librerías externas:</strong> Instala librerías con <code>npm</code> e impórtalas en tu
+                proyecto. Ejemplo:
+                <pre><code>npm install lodash</code></pre>
+                Luego, utilízalas en tu componente:
+                <pre><code>import * as _ from 'lodash';
+
+const result = _.chunk([1, 2, 3, 4], 2);
+console.log(result); // [[1, 2], [3, 4]]</code></pre>
+            </li>
+        </ol>
+
+        <div class="note">
+            <strong>Nota:</strong> Asegúrate de mantener las dependencias y referencias organizadas en los archivos de
+            configuración como <code>angular.json</code> y <code>package.json</code>.
+        </div>
+    </div>
+</body>
+
+</html>

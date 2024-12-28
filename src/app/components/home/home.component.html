@@ -1,0 +1,9 @@
+<ol>
+    <li *ngFor="let article of articles" [routerLink]="['/articulo', article.slug]" class="article-item">
+        <div class="icon">
+            <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="title">{{article.title}}</div>
+        <div class="descr">{{article.summary}}</div>
+    </li>
+</ol>
