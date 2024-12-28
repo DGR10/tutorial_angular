@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeros Pasos con Angular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        code {
+            background: #eef;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .highlight {
+            background: #dff0d8;
+            color: #3c763d;
+            font-weight: bold;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Primeros Pasos con Angular</h1>
+        <h2>3. Primeros Pasos:</h2>
+        <h3>a. Cómo realizar una primera aproximación ("Hola Mundo")</h3>
+        <ol>
+            <li>
+                <strong>Instalar Angular CLI:</strong> Asegúrate de tener Angular CLI instalado ejecutando en la
+                terminal:
+                <pre><code>npm install -g @angular/cli</code></pre>
+            </li>
+            <li>
+                <strong>Crear un nuevo proyecto Angular:</strong> Ejecuta el siguiente comando y sigue las instrucciones
+                para configurar el proyecto:
+                <pre><code>ng new hola-mundo</code></pre>
+            </li>
+            <li>
+                <strong>Navegar al directorio del proyecto:</strong>
+                <pre><code>cd hola-mundo</code></pre>
+            </li>
+            <li>
+                <strong>Iniciar el servidor de desarrollo:</strong> Usa el siguiente comando para iniciar la aplicación:
+                <pre><code>ng serve</code></pre>
+                Accede a la aplicación en tu navegador en la URL: <a href="http://localhost:4200"
+                    target="_blank">http://localhost:4200</a>
+            </li>
+            <li>
+                <strong>Modificar el componente principal:</strong>
+                Edita el archivo <code>src/app/app.component.html</code> y reemplázalo con el siguiente contenido:
+                <pre><code>&lt;h1&gt;¡Hola Mundo desde Angular!&lt;/h1&gt;</code></pre>
+            </li>
+            <li>
+                <strong>Guardar y visualizar:</strong> Guarda los cambios. La aplicación se recargará automáticamente
+                mostrando el mensaje "¡Hola Mundo desde Angular!" en tu navegador.
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>

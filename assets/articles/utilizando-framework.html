@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización del Framework Angular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        code {
+            background: #eef;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #dff0d8;
+            color: #3c763d;
+            font-weight: bold;
+        }
+
+        .note {
+            background: #fdf8e4;
+            padding: 10px;
+            border: 1px solid #ffd966;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Utilización del Framework Angular</h1>
+        <h2>4. Utilización del Framework:</h2>
+        <h3>a. ¿Cómo empezar a crear una aplicación base?</h3>
+        <ol>
+            <li>
+                <strong>Crear un nuevo proyecto:</strong> Abre tu terminal o consola de comandos y ejecuta:
+                <pre><code>ng new nombre-aplicacion</code></pre>
+                Este comando hará lo siguiente:
+                <ul>
+                    <li>Crear una estructura básica de directorios y archivos.</li>
+                    <li>Instalar dependencias necesarias con <code>npm</code>.</li>
+                    <li>Configurar el proyecto con opciones interactivas como la inclusión de <code>routing</code> y el
+                        uso de <code>SCSS</code>, <code>CSS</code>, o <code>LESS</code>.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Explorar la estructura del proyecto:</strong>
+                Una vez creado, encontrarás las siguientes carpetas y archivos principales:
+                <ul>
+                    <li><code>src/</code>: Carpeta principal donde resides el código fuente de la aplicación.</li>
+                    <li><code>app/</code>: Contiene los componentes y lógica principal de la aplicación.</li>
+                    <li><code>angular.json</code>: Archivo de configuración del proyecto.</li>
+                    <li><code>package.json</code>: Lista de dependencias y scripts.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Configurar el componente principal:</strong> Edita el archivo
+                <code>src/app/app.component.html</code> para personalizar la vista principal. Por ejemplo:
+                <pre><code>&lt;h1&gt;¡Bienvenido a mi aplicación Angular!&lt;/h1&gt;</code></pre>
+                También puedes añadir un nuevo componente para organizar mejor tu aplicación:
+                <pre><code>ng generate component nombre-componente</code></pre>
+            </li>
+        </ol>
+
+        <h3>b. ¿Cómo visualizar los resultados de la ejecución?</h3>
+        <ol>
+            <li>
+                <strong>Iniciar el servidor de desarrollo:</strong> Usa el siguiente comando para iniciar un servidor
+                local:
+                <pre><code>ng serve</code></pre>
+                Esto iniciará un servidor de desarrollo en el puerto predeterminado <code>4200</code>.
+            </li>
+            <li>
+                <strong>Acceder a la aplicación:</strong> Abre tu navegador y ve a la URL:
+                <pre><code>http://localhost:4200</code></pre>
+                Aquí podrás visualizar la aplicación en funcionamiento.
+            </li>
+            <li>
+                <strong>Actualizar cambios en tiempo real:</strong> Mientras el servidor está activo, cualquier cambio
+                en los archivos fuente se reflejará automáticamente en el navegador.
+            </li>
+            <li>
+                <strong>Visualizar errores y soluciones:</strong> Si encuentras errores durante la ejecución, verifica
+                los logs en la terminal o en la consola del navegador.
+            </li>
+        </ol>
+
+        <div class="note">
+            <strong>Nota:</strong> Si deseas cambiar el puerto del servidor, puedes usar el comando:
+            <pre><code>ng serve --port 4300</code></pre>
+            Esto ejecutará la aplicación en <code>http://localhost:4300</code>.
+        </div>
+
+        <h3>c. Extender tu aplicación:</h3>
+        <ul>
+            <li><strong>Rutas:</strong> Configura la navegación entre páginas editando
+                <code>app-routing.module.ts</code>.</li>
+            <li><strong>Servicios:</strong> Genera servicios para gestionar lógica de negocio con:
+                <pre><code>ng generate service nombre-servicio</code></pre>
+            </li>
+            <li><strong>Conexión con APIs:</strong> Usa <code>HttpClientModule</code> para realizar llamadas a APIs
+                externas.</li>
+        </ul>
+    </div>
+</body>
+
+</html>
